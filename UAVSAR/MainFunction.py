@@ -22,7 +22,8 @@ uploading all 9 image files and calculating the factors for normalization (GEE)
 
 9) Different method? RF or Deep Learning
 
-@author: wayne
+@author: chao wang
+waynechao128@gmail.com
 """
 
 import os
@@ -70,12 +71,12 @@ if __name__ == '__main__':
     Step = 6
     
     #set google drive dir
-    GoogleDriveDir='C:\\Users\\wayne\\Google Drive\\SolarPV\\'
+    GoogleDriveDir='C:\\Users\\wayne\\Google Drive\\'
     
 #    workstation='C:\\Workstation\\NC_Study\\UAVSAR\\Data\\uavsar_experiment'
 #    workstation='D:\\Data\\UAVSAR'
-#    workstation='F:\\UAVSAR_NC'
-    workstation='F:\\UAVSAR_PAD'
+    workstation='F:\\UAVSAR_NC'
+
 
 #    ##input
 #    InputDatafolder='UA_neuser_32023_18065_002_180918_L090_CX_01'
