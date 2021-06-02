@@ -8,3 +8,8 @@ Chao Wang<sup>1</sup>, Tamlin M. Pavelsky<sup>1</sup>, Fangfang Yao<sup>2</sup>,
 </br>5Department of Geography, University of North Carolina, Chapel Hill, NC, USA
 </br>6Carolina Population Center, University of North Carolina, Chapel Hill, NC, USA
 </br>7Department of Sociology and Carolina Population Center, University of North Carolina, Chapel Hill, NC, USA
+
+
+# Python Instructions
+
+For this pipeline to work you will need to have a Google Earth Engine configured python installation ready to go. Explaining exactly how to do this is beyond the scope of this package but Google provides detailed installation instructions [here](https://developers.google.com/earth-engine/python_install).
