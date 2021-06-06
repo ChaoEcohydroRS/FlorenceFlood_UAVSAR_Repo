@@ -88,6 +88,65 @@ def load_BMP_data(file_name, gdal_driver='BMP'):
 
 
 
+#def array2raster(data_array, geodata, file_out, gdal_driver='GTiff'):
+#    '''
+#    Converts a numpy array to a specific geospatial output
+#    If you provide the geodata of the original input dataset, then the output array will match this exactly.
+#    If you've changed any extents/cell sizes, then you need to amend the geodata variable contents (see below)
+#    
+#    VARIABLES
+#    data_array = the numpy array of your data
+#    geodata = (geotransform, inDs) # this is a combined variable of components when you opened the dataset
+#                inDs = gdal.Open(file_name, GA_ReadOnly)
+#                geotransform = inDs.GetGeoTransform()
+#                see data2array()
+#    file_out = name of file to output to (directory must exist)
+#    gdal_driver = the gdal driver to use to write out the data (default is geotif) - see: http://www.gdal.org/formats_list.html
+#
+#    RETURNS
+#    None
+#    '''
+#
+#    if not os.path.exists(os.path.dirname(file_out)):
+#        print("Your output directory doesn't exist - please create it")
+#        print("No further processing will take place.")
+#    else:
+#        post1=geodata[0][1]
+#        post2=geodata[0][5]
+#        print(post1)
+#        print(post2)       
+#        
+#        original_geotransform, inDs = geodata
+#        print(original_geotransform)
+##        print(original_geotransform[0])
+#
+#        rows, cols = data_array.shape
+#        bands = 1
+#
+#        # Set the gedal driver to use
+#        driver = gdal.GetDriverByName(gdal_driver) 
+#        driver.Register()
+#
+#        # Creates a new raster data source
+#        #dstImg = driver.Create(dstName, srcImg.RasterXSize, 
+#        #srcImg.RasterYSize, 1, gdal.GDT_Int32, options = [ 'COMPRESS=DEFLATE' ])
+#        outDs = driver.Create(file_out, cols, rows, bands, gdal.GDT_Float32, ['COMPRESS=LZW'])
+#
+#        # Write metadata
+#        originX = original_geotransform[0]
+#        
+#        originY = original_geotransform[3]
+#        
+#
+#        outDs.SetGeoTransform([originX, post1, 0.0, originY, 0.0, post2])
+#        outDs.SetProjection(inDs.GetProjection())
+#
+#        #Write raster datasets
+#        outBand = outDs.GetRasterBand(1)
+#        outBand.WriteArray(data_array)
+#            
+#        print("Output saved: %s" %file_out)
+
 def array2raster(data_array, geodata, file_out, gdal_driver='GTiff'):
     '''
     Converts a numpy array to a specific geospatial output
@@ -124,13 +183,13 @@ def array2raster(data_array, geodata, file_out, gdal_driver='GTiff'):
         bands = 1
 
         # Set the gedal driver to use
-        driver = gdal.GetDriverByName(gdal_driver) 
+        driver = gdal.GetDriverByName('MEM') 
         driver.Register()
 
         # Creates a new raster data source
         #dstImg = driver.Create(dstName, srcImg.RasterXSize, 
         #srcImg.RasterYSize, 1, gdal.GDT_Int32, options = [ 'COMPRESS=DEFLATE' ])
-        outDs = driver.Create(file_out, cols, rows, bands, gdal.GDT_Float32, ['COMPRESS=LZW'])
+        outDs = driver.Create('', cols, rows, bands, gdal.GDT_Float32)
 
         # Write metadata
         originX = original_geotransform[0]
@@ -142,12 +201,17 @@ def array2raster(data_array, geodata, file_out, gdal_driver='GTiff'):
         outDs.SetProjection(inDs.GetProjection())
 
         #Write raster datasets
-        outBand = outDs.GetRasterBand(1)
-        outBand.WriteArray(data_array)
+        outDs.GetRasterBand(1).WriteArray(data_array)
+        
+        outDs.BuildOverviews("NEAREST", [2, 4, 8, 16, 32, 64])
+        
+        driver = gdal.GetDriverByName('GTiff')
+        data_set2 = driver.CreateCopy(file_out, outDs, \
+                    options=["COPY_SRC_OVERVIEWS=YES","TILED=YES","COMPRESS=LZW"])
+        
+        data_set2 = None
             
         print("Output saved: %s" %file_out)
-
-
        
 ## Open some data inc /neuser_32023_18067_000_180920_L090_CX_01.hgt
 # file_name="C:\\Workstation\\NC_Study\\UAVSAR\\Data\\uavsar.asfdaac.alaska.edu\\"+\
