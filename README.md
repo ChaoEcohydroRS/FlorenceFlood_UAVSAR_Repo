@@ -31,13 +31,8 @@ For this pipeline to work you will need to have a Google Earth Engine configured
 ## Usage
 
 ```javascript
-// Store in a variable to stop the gallery later on (see below).
-const gallery = big({
-  photos: [{ image: 'photo1.jpg'}, { image: 'http://example.com/photo2.png'}],
-  interval: 5000,
-  fade: 3000,
-  random: true
-})
+// Store in a variable (see below).
+
 ```
 
 ## Resources
