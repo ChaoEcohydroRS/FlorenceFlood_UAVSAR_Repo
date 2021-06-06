@@ -12,12 +12,17 @@ This is repository used to hold the scripts used for the manuscript named **"Flo
 
 We constructed a flood detection algorithm framework (Fig. 2) building on previous work by Atwood et al. (2012), including extraction of T3 coherency matrix elements, “Refined Lee Filter” speckle filtering, polarization orientation angle correction, polarimetric decomposition, radiometric terrain correction, radiometric normalization, and supervised classification. The basic processing flow and the auxiliary data sets used are illustrated in Fig. 2. The workflow includes three major components. The processing steps in the pink box were carried out using the European Space Agency (ESA) PolSARpro v6.2 software package (Pottier et al, 2009) through custom python batch scripts. The steps in the light yellow and light blue boxes were implemented in the Google Earth Engine (GEE) platform using the python (v3.7.3) API (v0.1.200) because it provides online cloud computing tools and a flexible interactive development environment, facilitating easy sharing and reproducibility (Gorelick et al. 2017). These steps include radiometric terrain correction, radiometric normalization, and supervised classification modules.
 
-This project have two components:
-The proposed framework for flood inundation mapping from UAVSAR imagery
+The proposed framework for flood inundation mapping from UAVSAR imagery has two components:
 1) local processing 
 2) Classification
+![UAVSAR_Workflow](./Figures/UAVSAR_processing_flowchar.jpg)
 
 
 # Python Instructions
 
 For this pipeline to work you will need to have a Google Earth Engine configured python installation ready to go. Explaining exactly how to do this is beyond the scope of this package but Google provides detailed installation instructions [here](https://developers.google.com/earth-engine/python_install).
+
+
+## Resources
+The material is made available under the **GNU General Public License v3.0**: Copyright 2021, Chao Wang, Tamlin M. Pavelsky, of Global Hydrology Lab - University of North Carolina, Chapel Hill.
+All rights reserved.
