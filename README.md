@@ -33,11 +33,29 @@ For this pipeline to work you will need to have a Google Earth Engine configured
 
 ## Installation
 
+
 ### Manually
 
 
 
 ## Usage
+Step1:
+Local processing:
+1)
+
+```javascript
+// Store in a variable (see below).
+
+```
+Step2:
+Upload cloud optimized input metrics:
+
+```javascript
+// Store in a variable (see below).
+
+```
+Step3:
+Conduct normalization and classification:
 
 ```javascript
 // Store in a variable (see below).
