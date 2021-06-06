@@ -22,6 +22,23 @@ The proposed framework for flood inundation mapping from UAVSAR imagery has two 
 
 For this pipeline to work you will need to have a Google Earth Engine configured python installation ready to go. Explaining exactly how to do this is beyond the scope of this package but Google provides detailed installation instructions [here](https://developers.google.com/earth-engine/python_install).
 
+## Installation
+
+### Manually
+
+
+
+## Usage
+
+```javascript
+// Store in a variable to stop the gallery later on (see below).
+const gallery = big({
+  photos: [{ image: 'photo1.jpg'}, { image: 'http://example.com/photo2.png'}],
+  interval: 5000,
+  fade: 3000,
+  random: true
+})
+```
 
 ## Resources
 The material is made available under the **GNU General Public License v3.0**: Copyright 2021, Chao Wang, Tamlin M. Pavelsky, of Global Hydrology Lab - University of North Carolina, Chapel Hill.
