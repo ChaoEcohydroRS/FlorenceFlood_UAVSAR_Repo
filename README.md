@@ -51,19 +51,15 @@ Local processing:
 
 ```
 Step2:
-Upload cloud optimized input metrics:
+Upload input metrics raster files (here, we used Cloud Optimized GeoTIFF, https://www.cogeo.org/), because we processed lots of raster data so that we prefer to use Google Cloud Storage(GCS, https://developers.google.com/earth-engine/Earth_Engine_asset_from_cloud_geotiff?hl=en). 
+Of course, you can upload to GEE assets instead of GCS. 
+UploadUAVSARGeoTiff2CloudStorage.ipynb
 
-```javascript
-// Store in a variable (see below).
-
-```
 Step3:
 Conduct normalization and classification:
-
-```javascript
-// Store in a variable (see below).
-
-```
+Before conducting normalization procedure, it requires the incidence angle raster file instead of provided local incidence angle file (which has taken into account the local topography), because our study sites are relatively flat and also we have already conducted terrain correction.
+The script named 'DownloadIncidenceAngle_4.py' was used to generate incidence angle used later.
+The script named 'GetNormalizationCorrectionParameters_6.py' was then used for extracted the parameters for correcting side-look gradient. specifically, we adopted a simple log-scaled linear regression.
 
 ## Resources
 The material is made available under the **MIT License**: Copyright 2021, Chao Wang, Tamlin M. Pavelsky, of Global Hydrology Lab - University of North Carolina, Chapel Hill.
