@@ -28,9 +28,42 @@ B) Supervised Classification
 
 # Data
 
-# How to start
 
+# How to start
+1) Download PolSARpro v6.0 (Biomass Edition) Software:
+We have tried to download and install the Linux version of PolSARpro (https://github.com/EO-College/polsarpro) in UNC longleaf HPC, however, this HPC does not support this software.
+
+So We turn to download Windows 64 bits Version follow the instruction as this website: https://ietr-lab.univ-rennes1.fr/polsarpro-bio/
+After installed the PolSARpro v6.0, we tested it with manully running a test by extracting and decompositing a PolSAR data.
+
+2) Batch mode:
+Since we are performing analysis on four different flightlines and each flightline has 4-5 observations, it will be fast to have a batch mode. Thus, we developed a python script use 'subprocess' function to Exclude exe Program, which is the similar idea as how PolSARpro v6.0 windows version tcl GUI works.
+
+```
+    #uavsar_convert_MLC
+    #-hf input annotation file
+    #-mem Allocated memory for blocksize determination(in Mb)
+    try:
+        ExcludeProgram=softDir+'data_import\\'+'uavsar_convert_MLC.exe'
+        subprocess.call(ExcludeProgram + " -hf \"" + Parameter_hf + \
+                                         "\" -if1 \"" + Parameter_if1 + \
+                                         "\" -if2 \"" + Parameter_if2 + \
+                                         "\" -if3 \"" + Parameter_if3 + \
+                                         "\" -if4 \"" + Parameter_if4 + \
+                                         "\" -if5 \"" + Parameter_if5 + \
+                                         "\" -if6 \"" + Parameter_if6 + \
+                                         "\" -od \"" + Parameter_od_T3 + \
+                                         "\" -odf T3 -inr "+str(grd_rows)+" -inc "+str(grd_cols)+\
+                                         " -ofr 0 -ofc 0 -fnr "+str(grd_rows)+" -fnc "+str(grd_cols)+\
+                                         "  -nlr 1 -nlc 1 -ssr 1 -ssc 1 -mem 4000 -errf \""+ Parameter_errf+"\"")
+    except subprocess.CalledProcessError as e:
+        raise RuntimeError("uavsar_convert_MLC command '{}' "+\
+                           "return with error (code {}): {}".format(e.cmd, e.returncode, e.output))
+```
 # Requirements
+
+
+
 Find the right version for your setup of Anaconda3 platform for running python scripts. In this study, we used Spyder IDE. In addition, for this pipeline to work you will need to have a GEE configured python installation ready to go.
 
 ## Installation
@@ -51,7 +84,7 @@ Local processing:
 
 ```
 Step2:
-Upload input metrics raster files (here, we used Cloud Optimized GeoTIFF, https://www.cogeo.org/), because we processed lots of raster data so that we prefer to use Google Cloud Storage(GCS, https://developers.google.com/earth-engine/Earth_Engine_asset_from_cloud_geotiff?hl=en). 
+Upload input metrics raster files (here, we used Cloud Optimized GeoTIFF, please see detailed at https://www.cogeo.org/), because we processed lots of raster data so that we prefer to use Google Cloud Storage(GCS, https://developers.google.com/earth-engine/Earth_Engine_asset_from_cloud_geotiff?hl=en). 
 Of course, you can upload to GEE assets instead of GCS. 
 UploadUAVSARGeoTiff2CloudStorage.ipynb
 
