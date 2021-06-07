@@ -20,13 +20,13 @@ We constructed a flood detection algorithm framework (Figure above), including e
 
 The proposed framework for flood inundation mapping from UAVSAR imagery has two components:
 1) **Local Processing**:
-A) UAVSAR fully polarimetric extraction 
-B) Polarietric de-speckling, de-orientation 
-C) Polarimetric decomposition
+</br>A) UAVSAR fully polarimetric extraction 
+</br>B) Polarietric de-speckling, de-orientation 
+</br>C) Polarimetric decomposition
 
 2) **Cloud-based Processing**:
-A) Polarimetric terrain correction and normalization
-B) Supervised Classification
+</br>A) Polarimetric terrain correction and normalization
+</br>B) Supervised Classification
 
 # Data
 The UAVSAR data can be downloaded from this website:
@@ -67,22 +67,23 @@ except subprocess.CalledProcessError as e:
 Check the file of 'requirements.txt'. For install GEE python API, please check 'GEE Python Instructions'.
 
 # GEE Python Instructions
-In addition, for this pipeline to work you will need to have a GEE configured python installation ready to go.
-Explaining exactly how to do this is beyond the scope of this package but Google provides detailed installation instructions [here](https://developers.google.com/earth-engine/python_install).
+</br>In addition, for this pipeline to work you will need to have a GEE configured python installation ready to go.
+</br>Explaining exactly how to do this is beyond the scope of this package but Google provides detailed installation instructions [here](https://developers.google.com/earth-engine/python_install).
 
 ## Usage
 The main start function is the script named **'MainFunction.py'**.
 
 **Step1**:
 </br>**Local processing**:
-1) 'ExtractPolarimetricSAR_1.py'
-2) 'ConvertHH_HV_VV2Geotiff_1.py'
-3) 'PolarimetricDecomposition_1.py'
+</br>1) 'ExtractPolarimetricSAR_1.py'
+</br>2) 'ConvertHH_HV_VV2Geotiff_1.py'
+</br>3) 'PolarimetricDecomposition_1.py'
 
 **Step2**:
 </br>**Upload input metrics raster files** (here, we used Cloud Optimized GeoTIFF, please see detailed at https://www.cogeo.org/), because we processed lots of raster data so that we prefer to use Google Cloud Storage(GCS, https://developers.google.com/earth-engine/Earth_Engine_asset_from_cloud_geotiff?hl=en). 
-Of course, you can upload to GEE assets instead of GCS. 
 'UploadUAVSARGeoTiff2CloudStorage.ipynb'
+</br>Of course, you can upload to GEE assets instead of GCS. 
+
 
 **Step3**:
 </br>**Conduct normalization and classification**:
