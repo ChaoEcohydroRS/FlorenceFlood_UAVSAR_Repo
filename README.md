@@ -31,17 +31,14 @@ B) Supervised Classification
 # How to start
 
 # Requirements
+Find the right version for your setup of Anaconda3 platform for running python scripts. In this study, we used Spyder IDE. In addition, for this pipeline to work you will need to have a GEE configured python installation ready to go.
 
 ## Installation
-
-```cmd script
-pip install -r requirements.txt
-
-```
+Check the file of 'requirements.txt'. For install GEE python API, please check 'GEE Python Instructions'.
 
 # GEE Python Instructions
 
-For this pipeline to work you will need to have a Google Earth Engine configured python installation ready to go. Explaining exactly how to do this is beyond the scope of this package but Google provides detailed installation instructions [here](https://developers.google.com/earth-engine/python_install).
+Explaining exactly how to do this is beyond the scope of this package but Google provides detailed installation instructions [here](https://developers.google.com/earth-engine/python_install).
 
 
 ## Usage
