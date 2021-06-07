@@ -1,6 +1,6 @@
 This is repository used to hold the scripts used for the manuscript named: 
 # "Flood extent mapping during Hurricane Florence with repeat-pass L-band UAVSAR images"
-This research was financially supported by the Dynamics of Extreme Events, People, and Places (DEEPP) project (https://deepp.cpc.unc.edu/).
+This research was financially supported by the **Dynamics of Extreme Events, People, and Places (DEEPP)** project (https://deepp.cpc.unc.edu/).
 
 Chao Wang<sup>1</sup>, Tamlin M. Pavelsky<sup>1</sup>, Fangfang Yao<sup>2</sup>, Xiao Yang<sup>1</sup>, Shuai Zhang<sup>3</sup>, Bruce Chapman<sup>4</sup>, Conghe Song<sup>5</sup>, Antonia Sebastian<sup>1</sup>, Brian Frizzelle<sup>6</sup>, Elizabeth Frankenberg<sup>7</sup> 
 </br>1Department of Geological Sciences, University of North Carolina, Chapel Hill, NC, USA
@@ -16,15 +16,15 @@ Chao Wang<sup>1</sup>, Tamlin M. Pavelsky<sup>1</sup>, Fangfang Yao<sup>2</sup>,
 
 
 ### Introduction
-We constructed a flood detection algorithm framework (Fig below), including extraction of T3 coherency matrix elements, “Refined Lee Filter” speckle filtering, polarization orientation angle correction, polarimetric decomposition, radiometric terrain correction, radiometric normalization, and supervised classification. The basic processing flow and the auxiliary data sets used are illustrated in Fig. 2. The workflow includes three major components. The processing steps in the pink box were carried out using the European Space Agency (ESA) PolSARpro v6.2 software package (Pottier et al, 2009) through custom python batch scripts. The steps in the light yellow and light blue boxes were implemented in the Google Earth Engine (GEE) platform using the python (v3.7.3) API (v0.1.200) because it provides online cloud computing tools and a flexible interactive development environment, facilitating easy sharing and reproducibility (Gorelick et al. 2017). These steps include radiometric terrain correction, radiometric normalization, and supervised classification modules.
+We constructed a flood detection algorithm framework (Figure above), including extraction of T3 coherency matrix elements, “Refined Lee Filter” speckle filtering, polarization orientation angle correction, polarimetric decomposition, radiometric terrain correction, radiometric normalization, and supervised classification. The basic processing flow and the auxiliary data sets used are illustrated in Fig. 2. The workflow includes three major components. The processing steps in the pink box were carried out using the European Space Agency (ESA) PolSARpro v6.2 software package (Pottier et al, 2009) through custom python batch scripts. The steps in the light yellow and light blue boxes were implemented in the Google Earth Engine (GEE) platform using the python (v3.7.3) API (v0.1.200) because it provides online cloud computing tools and a flexible interactive development environment, facilitating easy sharing and reproducibility (Gorelick et al. 2017). These steps include radiometric terrain correction, radiometric normalization, and supervised classification modules.
 
 The proposed framework for flood inundation mapping from UAVSAR imagery has two components:
-1) Local Processing:
+1) **Local Processing**:
 A) UAVSAR fully polarimetric extraction 
 B) Polarietric de-speckling, de-orientation 
 C) Polarimetric decomposition
 
-2) Cloud-based Processing:
+2) **Cloud-based Processing**:
 A) Polarimetric terrain correction and normalization
 B) Supervised Classification
 
@@ -33,14 +33,13 @@ The UAVSAR data can be downloaded from this website:
 https://uavsar.jpl.nasa.gov/
 
 # How to start and Requirements
-1) Download PolSARpro v6.0 (Biomass Edition) Software:
+1) Download **PolSARpro v6.0 (Biomass Edition)** Software:
 </br>We have tried to download and install the Linux version of PolSARpro (https://github.com/EO-College/polsarpro) in UNC longleaf HPC, however, this HPC does not support this software.
 </br>So we turn to download Windows 64 bits Version follow the instruction as this website: https://ietr-lab.univ-rennes1.fr/polsarpro-bio/
 </br>After installed the PolSARpro v6.0, we tested it with manully running a test by extracting and decompositing a PolSAR data.
 
-2) Batch mode with Python:
-</br>Find the right version for your setup of Anaconda3 platform for running python scripts. In this study, we used Spyder IDE.
-Since we are performing analysis on four different flightlines and each flightline has 4-5 observations, it will be fast to have a batch mode. Thus, we developed a python script use 'subprocess' function to Exclude Exe Program, which is the similar idea as how PolSARpro v6.0 windows version tcl GUI works.
+2) **Batch** mode with Python:
+</br>Find the right version for your setup of **Anaconda3** platform for running python scripts. In this study, we used **Spyder** IDE. Since we are performing analysis on four different flightlines and each flightline has 4-5 observations, it will be fast to have a batch mode. Thus, we developed a python script use **'subprocess'** function to Exclude Exe Program, which is the similar idea as how PolSARpro v6.0 windows version tcl GUI works.
 
 ```For instance, extract UAVSAR data as T3 matrix: Select Polarimetric Matrix Generation
 #uavsar_convert_MLC
@@ -72,24 +71,24 @@ In addition, for this pipeline to work you will need to have a GEE configured py
 Explaining exactly how to do this is beyond the scope of this package but Google provides detailed installation instructions [here](https://developers.google.com/earth-engine/python_install).
 
 ## Usage
-The main interface is the script named 'MainFunction.py'.
+The main start function is the script named **'MainFunction.py'**.
 
-Step1:
-</br>Local processing:
+**Step1**:
+</br>**Local processing**:
 1) 'ExtractPolarimetricSAR_1.py'
 2) 'ConvertHH_HV_VV2Geotiff_1.py'
 3) 'PolarimetricDecomposition_1.py'
 
-Step2:
-</br>Upload input metrics raster files (here, we used Cloud Optimized GeoTIFF, please see detailed at https://www.cogeo.org/), because we processed lots of raster data so that we prefer to use Google Cloud Storage(GCS, https://developers.google.com/earth-engine/Earth_Engine_asset_from_cloud_geotiff?hl=en). 
+**Step2**:
+</br>**Upload input metrics raster files** (here, we used Cloud Optimized GeoTIFF, please see detailed at https://www.cogeo.org/), because we processed lots of raster data so that we prefer to use Google Cloud Storage(GCS, https://developers.google.com/earth-engine/Earth_Engine_asset_from_cloud_geotiff?hl=en). 
 Of course, you can upload to GEE assets instead of GCS. 
-UploadUAVSARGeoTiff2CloudStorage.ipynb
+'UploadUAVSARGeoTiff2CloudStorage.ipynb'
 
-Step3:
-</br>Conduct normalization and classification:
+**Step3**:
+</br>**Conduct normalization and classification**:
 </br>Before conducting normalization procedure, it requires the incidence angle raster file instead of provided local incidence angle file (which has taken into account the local topography), because our study sites are relatively flat and also we have already conducted terrain correction.
-</br>The script named 'DownloadIncidenceAngle_4.py' was used to generate incidence angle used later.
-</br>The script named 'GetNormalizationCorrectionParameters_6.py' was then used for extracted the parameters for correcting side-look gradient. specifically, we adopted a simple log-scaled linear regression.
+</br>The script named **'DownloadIncidenceAngle_4.py'** was used to generate incidence angle used later.
+</br>The script named **'GetNormalizationCorrectionParameters_6.py'** was then used for extracted the parameters for correcting side-look gradient. specifically, we adopted a simple log-scaled linear regression.
 
 ## Resources
 The material is made available under the **MIT License**: Copyright 2021, Chao Wang, Tamlin M. Pavelsky, of Global Hydrology Lab - University of North Carolina, Chapel Hill.
