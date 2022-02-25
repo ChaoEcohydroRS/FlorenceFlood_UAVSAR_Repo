@@ -94,6 +94,29 @@ The main start function is the script named **'MainFunction.py'**.
 </br>The script named **'DownloadIncidenceAngle_4.py'** was used to generate incidence angle used later.
 </br>The script named **'GetNormalizationCorrectionParameters_6.py'** was then used for extracted the parameters for correcting side-look gradient. specifically, we adopted a simple log-scaled linear regression.
 
+## Citation
+Wang, C., Pavelsky, T. M., Yao, F., Yang, X., Zhang, S., Chapman, B., et al. (2022). Flood extent mapping during Hurricane Florence with repeat-pass L-band UAVSAR images. Water Resources Research, 58, e2021WR030606. https://doi.org/10.1029/2021WR030606
+
+If you find our work useful for your research, please consider citing the following paper.
+```
+@article{https://doi.org/10.1029/2021WR030606,
+author = {Wang, Chao and Pavelsky, Tamlin M. and Yao, Fangfang and Yang, Xiao and Zhang, Shuai and Chapman, Bruce and Song, Conghe and Sebastian, Antonia and Frizzelle, Brian and Frankenberg, Elizabeth and Clinton, Nicholas},
+title = {Flood Extent Mapping During Hurricane Florence With Repeat-Pass L-Band UAVSAR Images},
+journal = {Water Resources Research},
+volume = {58},
+number = {3},
+pages = {e2021WR030606},
+keywords = {L-band UAVSAR, polarimetric SAR, flooding, inundation extent, flooded vegetation, incidence angle},
+doi = {https://doi.org/10.1029/2021WR030606},
+url = {https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2021WR030606},
+eprint = {https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/2021WR030606},
+note = {e2021WR030606 2021WR030606},
+abstract = {Abstract Extreme precipitation events are intensifying due to a warming climate, which, in some cases, is leading to increases in flooding. Detection of flood extent is essential for flood disaster response, management, and prevention. However, it is challenging to delineate inundated areas through most publicly available optical and short-wavelength radar data, as neither can “see” through dense forest canopies. In 2018, Hurricane Florence produced heavy rainfall and subsequent record-setting riverine flooding in North Carolina, USA. NASA/JPL collected daily high-resolution full-polarized L-band Uninhabited Aerial Vehicle Synthetic Aperture Radar (UAVSAR) data between September 18th and 23rd. Here, we use UAVSAR data to construct a flood inundation detection framework through a combination of polarimetric decomposition methods and a Random Forest classifier. Validation of the established models with compiled ground references shows that the incorporation of linear polarizations with polarimetric decomposition and terrain variables significantly enhances the accuracy of inundation classification, and the Kappa statistic increases to 91.4\% from 64.3\% with linear polarizations alone. We show that floods receded faster near the upper reaches of the Neuse, Cape Fear, and Lumbee Rivers. Meanwhile, along the flat terrain close to the lower reaches of the Cape Fear River, the flood wave traveled downstream during the observation period, resulting in the flood extent expanding 16.1\% during the observation period. In addition to revealing flood inundation changes spatially, flood maps such as those produced here have great potential for assessing flood damages, supporting disaster relief, and assisting hydrodynamic modeling to achieve flood-resilience goals.},
+year = {2022}
+}
+```
+
+
 ## Resources
 The material is made available under the **MIT License**: Copyright 2021, Chao Wang, Tamlin M. Pavelsky, of Global Hydrology Lab - University of North Carolina, Chapel Hill.
 All rights reserved.
