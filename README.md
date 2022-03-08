@@ -3,6 +3,7 @@ This is repository used to hold the scripts used for the manuscript named:
 </br>This research was financially supported by the **Dynamics of Extreme Events, People, and Places (DEEPP)** project (https://deepp.cpc.unc.edu/).
 
 Chao Wang<sup>1</sup>, Tamlin M. Pavelsky<sup>1</sup>, Fangfang Yao<sup>2</sup>, Xiao Yang<sup>1</sup>, Shuai Zhang<sup>3</sup>, Bruce Chapman<sup>4</sup>, Conghe Song<sup>5</sup>, Antonia Sebastian<sup>1</sup>, Brian Frizzelle<sup>6</sup>, Elizabeth Frankenberg<sup>7</sup>, Nicholas Clinton<sup>8</sup>
+
 </br><sup>1</sup>Department of Earth, Marine and Environmental Sciences, University of North Carolina, Chapel Hill, NC, USA
 </br><sup>2</sup>CIRES University of Colorado Boulder, Boulder, CO, USA
 </br><sup>3</sup>College of Marine Science, University of South Florida, St. Petersburg, FL, USA 
