@@ -1,4 +1,4 @@
-This is repository used to hold the scripts used for the manuscript named: 
+This is a github repository used to hold the scripts for the manuscript named: 
 **"Flood extent mapping during Hurricane Florence with repeat-pass L-band UAVSAR images"** submitted to ***Water Resources Research*** 
 </br>This research was financially supported by the **Dynamics of Extreme Events, People, and Places (DEEPP)** project (https://deepp.cpc.unc.edu/).
 
